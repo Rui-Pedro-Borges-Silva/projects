@@ -1,0 +1,103 @@
+[global]
+fsid                            = {UUID}
+public network                  = 192.0.1.0/24
+cluster network                 = 192.0.1.0/24
+pid file                        = /var/run/ceph/$name.pid
+mon_initial_members             = mon
+mon_host                        = 10.0.1.12
+max open files                  = 131072
+auth cluster required = cephx
+auth service required = cephx
+auth client required = cephx
+cephx cluster require signatures = true
+cephx service require signatures = false
+
+[mon]
+mon_initial_members             = mon
+mon_host                        = 10.0.1.12
+mon data                        = /var/lib/ceph/mon/$cluster-$id
+mon_clock_drift_allowed         = 0.15
+mon clock drift warn backoff    = 30
+mon_osd_full_ratio              = 0.95
+mon_osd_nearfull_ratio          = 0.85
+mon osd down out interval       = 600
+
+[osd]
+osd data = /var/lib/ceph/osd/$cluster-$id
+osd_journal_size                = 2048
+osd recovery max active         = 3
+
+osd max backfills               = 2
+osd max scrubs                  = 2
+filestore_max_sync_interval     = 5
+filestore queue max ops         = 500
+filestore merge threshold       = -10
+filestore split multiple        = 2
+
+
+[mgr]
+mgr_modules                     = dashboard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[global]
+fsid                            = {UUID}
+public network                  = 192.0.1.0/24
+cluster network                 = 192.0.1.0/24
+pid file                        = /var/run/ceph/$name.pid
+mon_initial_members             = mon
+mon_host                        = 10.0.1.12
+max open files                  = 131072
+# Configurações de autenticação.
+auth cluster required = cephx
+auth service required = cephx
+auth client required = cephx
+
+# Ativar a verificação de assinatura para o cluster e desativar para o serviço.
+cephx cluster require signatures = true
+cephx service require signatures = false
+
+[mon]
+mon_initial_members             = mon
+mon_host                        = 10.0.1.12
+mon data                        = /var/lib/ceph/mon/$cluster-$id
+mon_clock_drift_allowed         = 0.15
+mon clock drift warn backoff    = 30
+mon_osd_full_ratio              = 0.95
+mon_osd_nearfull_ratio          = 0.85
+mon osd down out interval       = 600   #20sec. by default
+
+[osd]
+osd data = /var/lib/ceph/osd/$cluster-$id
+osd_journal_size                = 2048  # Tamanho do journal em MB
+osd recovery max active         = 3
+# Número máximo de backfills permitidos por OSD
+osd max backfills               = 2  # Ajuste conforme a capacidade do hardware para evitar sobrecarga
+osd max scrubs                  = 2
+filestore_max_sync_interval     = 5
+filestore queue max ops         = 500
+filestore merge threshold       = -10      # Min number of files in a subdir before merging into parent NOTE: A negative value means to disable subdir merging
+filestore split multiple        = 2        # filestore_split_multiple * abs(filestore_merge_threshold) * 16 is the maximum number of files in a subdirectory before splitting into child directories.
+
+
+[mgr]
+mgr_modules                     = dashboard  # Se você deseja ativar o dashboard do Ceph

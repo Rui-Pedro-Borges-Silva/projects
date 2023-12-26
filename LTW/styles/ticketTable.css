@@ -1,0 +1,116 @@
+/* ticketTable.css */
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+}
+
+th, td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #fefefe;
+}
+
+tr {
+  background-color: #ffffff;
+}
+
+td.actions {
+  text-align: center;
+  width: 150px;
+}
+
+td.actions button {
+  width: 80px;
+  padding: 6px 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+td.actions button:hover {
+  background-color: #45a049;
+}
+
+td.actions button.delete {
+  background-color: #d32f2f;
+}
+
+td.actions button.delete:hover {
+  background-color: #b62626;
+}
+
+.ticket-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.ticket-header h2 {
+  text-align: center;
+  color: #333333;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  flex-grow: 1;
+}
+
+.ticket-header button {
+  padding: 8px 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.ticket-header button:hover {
+  background-color: #45a049;
+}
+
+.add-ticket-button {
+  margin-left: 10px;
+}
+
+.empty-tickets-message {
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  color: #999999;
+}
+
+td.actions a {
+  text-decoration: none;
+  color: white;
+}
+
+.edit-button {
+  display: inline-block;
+  width: 30%;
+  padding: 6px 18px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+  background-color: #45a049;
+}

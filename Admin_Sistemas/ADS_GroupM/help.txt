@@ -1,0 +1,48 @@
+[global]
+cluster network = 10.0.1.0/24
+public network = 10.0.1.0/24
+fsid = 498ad1bb-70c6-4558-8e9a-73aec17daa5a
+mon host = 10.0.1.12
+mon initial members = mon
+osd pool default crush rule = 0
+
+auth cluster required = cephx
+auth service required = cephx
+
+[mon.mon]
+host = mon
+mon addr = 10.0.1.12
+mon allow pool delete = true
+
+[client.admin]
+keyring = /etc/ceph/ceph.client.admin.keyring
+
+[osd]
+osd journal size = 1024
+osd pool default size = 3
+osd pool default min size = 2
+osd crush chooseleaf type = 1
+osd crush update on start = true
+osd max object name len = 256
+osd max object namespace len = 64
+
+
+
+
+
+.ssh/config
+Host mon
+        Hostname 10.0.1.12
+        User ubuntu
+Host mgr
+        Hostname 10.0.1.13
+        User ubuntu
+Host osd1
+        Hostname 10.0.1.10
+        User ubuntu
+Host osd2
+        Hostname 10.0.1.11
+        User ubuntu
+Host rcli
+        Hostname 10.0.1.14
+        User ubuntu

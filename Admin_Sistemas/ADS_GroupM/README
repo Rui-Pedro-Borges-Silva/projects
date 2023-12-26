@@ -1,0 +1,56 @@
+# Ceph Installation
+sudo apt update && sudo apt upgrade
+sudo apt install ceph
+sudo systemctl start ceph-mon@mon
+
+# Configure Ceph Monitor
+sudo mkdir /etc/ceph
+sudo ceph-mon --mkfs -i mon --monmap /tmp/monmap --keyring /tmp/ceph.keyring
+
+# CMD Ceph
+ceph -s
+ceph health detail
+ceph health
+systemctl daemon-reload
+
+# OSD Managment
+ceph osd ls
+ceph osd tree
+ceph osd stat
+sudo ceph-volume lvm create --data /dev/sdx
+sudo systemctl enable --now ceph-osd@<id>
+
+#OSD remove
+ceph osd out <osd-id>
+ceph osd crush remove <osd-id>
+ceph auth del osd.<osd-id>
+ceph osd rm <osd-id>
+
+# Monitor Management
+ceph mon stat
+ceph mon dump
+
+# Pool RBD
+ceph osd pool create rbd 32
+ceph osd pool set rbd pg_autoscale_mode on
+rbd pool init rbd
+rbd create --size 10G --pool rbd sdb01
+
+# Pool information
+ceph osd pool ls
+rados bench -p rbd 10 write
+ceph osd pool get rbd all
+
+# Disk
+lsblk
+sudo fdisk -l /dev/sdb
+
+# Test connections in vms
+telnet 10.0.1.10
+ping 10.0.1.10
+
+# Systemtd ceph
+systemctl start ceph.target
+systemctl status ceph-mon@node01
+systemctl restart ceph.target
+sudo systemctl status ceph-*
