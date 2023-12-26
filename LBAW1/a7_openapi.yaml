@@ -1,0 +1,490 @@
+openapi: "3.0.0"
+
+info:
+  version: "1.0"
+  title: "LBAW Knowledge API"
+  description: "Web Resources Specification (A7) for Collaborative Q&A"
+
+servers:
+  - url: http://lbaw.fe.up.pt
+    description: "production server"
+
+externalDocs:
+  description: Find more info here.
+  url: https://git.fe.up.pt/lbaw/lbaw2324/lbaw2371/-/wikis/eap
+
+tags:
+  - name: "M01: User Authentication"
+  - name: "M02: Question Management"
+  - name: "M03: Answer Management"
+  - name: "M04: Search and Discovery"
+
+paths:
+  /login:
+    get:
+      operationId: R01
+      summary: "R01: Login Form"
+      description: "Provide login form. Access: PUB"
+      tags:
+        - "M01: User Authentication"
+      responses:
+        "200":
+          description: "Ok. Show Log-in UI"
+    post:
+      operationId: R02
+      summary: "R02: Login Action"
+      description: "Processes the login form submission. Access: PUB"
+      tags:
+        - "M01: User Authentication"
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+                - email
+                - password
+      responses:
+        "302":
+          description: "Redirect after processing the login credentials."
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Success:
+                  description: "Successful authentication. Redirect to home."
+                  value: "/"
+                302Error:
+                  description: "Failed authentication. Redirect to login form."
+                  value: "/login"
+    
+  /logout:
+    post:
+      operationId: R03
+      summary: "R03: Logout Action"
+      description: "Logout the current authenticated user. Access: USR, MAN"
+      tags:
+        - "M01: User Authentication"
+      responses:
+        "302":
+          description: "Redirect after processing logout."
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Success:
+                  description: "Successful logout. Redirect to home"
+                  value: "/"
+    
+  /register:
+    get:
+      operationId: R04
+      summary: "R04: Register Form"
+      description: "Provide new user registration form. Access: PUB"
+      tags:
+        - "M01: User Authentication"
+      responses:
+        "200":
+          description: "Ok. Show Sign-Up UI"
+    post:
+      operationId: R05
+      summary: "R05: Register Action"
+      description: "Processes the new user registration form submission. Access: PUB"
+      tags:
+        - "M01: User Authentication"
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                picture:
+                  type: string
+                  format: binary
+              required:
+                - email
+                - password
+      responses:
+        "302":
+          description: "Redirect after processing the new user information."
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Success:
+                  description: "Successful authentication. Redirect to homepage."
+                  value: "/"
+                302Failure:
+                  description: "Failed authentication. Redirect to login form."
+                  value: "/login"
+    
+  /user/{id}:
+    get:
+      operationId: R06
+      summary: "R06: View user profile"
+      description: "Show the individual user profile, will show a form is user is in its own profile. Access: USR"
+      tags:
+        - "M01: User Authentication"
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        "200":
+          description: "Ok. Show User Profile UI"
+          /questions/store:
+    post:
+      operationId: R12
+      summary: "R12: Post New Question Action"
+      description: "Processes the new question submission. Access: PUB"
+      tags:
+        - "M02: Question Management"
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+              required:
+                - title
+                - description
+      responses:
+        "302":
+          description: "Redirect after posting a new question."
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Success:
+                  description: "Question posted successfully. Redirect to question details."
+                  value: "/allquestions"
+                302Failure:
+                  description: "Failed to post the question. Redirect to question form."
+                  value: "/questions"
+    
+  /allquestions:
+    get:
+      operationId: R13
+      summary: "R13: View Questions"
+      description: "Show all questions. Access: PUB"
+      tags:
+        - "M02: Question Management"
+      responses:
+        "200":
+          description: "Ok. Show All Questions UI"
+
+  /allquestions/{id}:
+    get:
+      operationId: R14
+      summary: "R14: View Questions Details"
+      description: "Show details of a specific question. Access: PUB"
+      tags:
+        - "M02: Question Management"
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        "200":
+          description: "Ok. Show Question Details UI"
+
+  /profile:
+    get:
+      operationId: R15
+      summary: "R15: View Own Question"
+      description: "Show own questions. Access: USR"
+      tags:
+        - "M02: Question Management"
+      responses:
+        "200":
+          description: "Ok. Show Own Questions UI"
+
+  /profile/edit:
+    put:
+      operationId: R16
+      summary: "R16: Edit Own Question"
+      description: "Edit own question. Access: USR"
+      tags:
+        - "M02: Question Management"
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+      responses:
+        "200":
+          description: "Ok. Edit Own Question UI"
+
+  /profile/delete:
+    delete:
+      operationId: R17
+      summary: "R17: Delete Own Question"
+      description: "Delete own question. Access: USR"
+      tags:
+        - "M02: Question Management"
+      responses:
+        "302":
+          description: "Redirect after deleting own question."
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Success:
+                  description: "Question deleted successfully. Redirect to profile."
+                  value: "/profile"
+                302Failure:
+                  description: "Failed to delete the question. Redirect to profile."
+                  value: "/profile"
+                  /allquestions/{id}/answer:
+    post:
+      operationId: R21
+      summary: "R21: Post New Answer Form"
+      description: "Show a form to post a new answer for a specific question. Access: USR"
+      tags:
+        - "M03: Answer Management"
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        "200":
+          description: "Ok. Show Post New Answer Form"
+
+  /allquestions/{id}/answer/store:
+    post:
+      operationId: R22
+      summary: "R22: Post New Answer Action"
+      description: "Processes the new answer submission for a specific question. Access: USR"
+      tags:
+        - "M03: Answer Management"
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+              required:
+                - text
+      responses:
+        "302":
+          description: "Redirect after posting a new answer."
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Success:
+                  description: "Answer posted successfully. Redirect to question details."
+                  value: "/allquestions/{id}"
+                302Failure:
+                  description: "Failed to post the answer. Redirect to answer form."
+                  value: "/allquestions/{id}/answer"
+
+  /allquestions/{id}/answers:
+    get:
+      operationId: R23
+      summary: "R23: View Answers"
+      description: "Show all answers for a specific question. Access: PUB"
+      tags:
+        - "M03: Answer Management"
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        "200":
+          description: "Ok. Show Answers UI"
+
+  /profile/answers:
+    get:
+      operationId: R24
+      summary: "R24: View Own Answer"
+      description: "Show own answers. Access: USR"
+      tags:
+        - "M03: Answer Management"
+      responses:
+        "200":
+          description: "Ok. Show Own Answers UI"
+
+  /profile/answers/edit:
+    put:
+      operationId: R25
+      summary: "R25: Edit Own Answer"
+      description: "Edit own answer. Access: USR"
+      tags:
+        - "M03: Answer Management"
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+      responses:
+        "200":
+          description: "Ok. Edit Own Answer UI"
+
+  /profile/answers/delete:
+    delete:
+      operationId: R26
+      summary: "R26: Delete Own Answer"
+      description: "Delete own answer. Access: USR"
+      tags:
+        - "M03: Answer Management"
+      responses:
+        "302":
+          description: "Redirect after deleting own answer."
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Success:
+                  description: "Answer deleted successfully. Redirect to profile."
+                  value: "/profile/answers"
+                302Failure:
+                  description: "Failed to delete the answer. Redirect to profile."
+                  value: "/profile/answers"
+                  /allquestions/search:
+    get:
+      operationId: R31
+      summary: "R31: Search Questions Form"
+      description: "Show a form to search for questions. Access: PUB"
+      tags:
+        - "M04: Search and Discovery"
+      responses:
+        "200":
+          description: "Ok. Show Search Questions Form"
+
+  /allquestions/search/execute:
+    get:
+      operationId: R32
+      summary: "R32: Search Questions Action"
+      description: "Execute a search for questions. Access: PUB"
+      tags:
+        - "M04: Search and Discovery"
+      parameters:
+        - in: query
+          name: query
+          description: "String to use for full-text search"
+          schema:
+            type: string
+        - in: query
+          name: name
+          description: "Name of the item"
+          schema:
+            type: string
+        - in: query
+          name: description
+          description: "Description of the auction"
+          schema:
+            type: string
+      responses:
+        "200":
+          description: "Ok. Show Search Results"
+
+  /allquestions/search/answers:
+    get:
+      operationId: R32
+      summary: "R32: Search Answers Form"
+      description: "Show a form to search for answers. Access: PUB"
+      tags:
+        - "M04: Search and Discovery"
+      responses:
+        "200":
+          description: "Ok. Show Search Answers Form"
+
+  /allquestions/search/answers/execute:
+    get:
+      operationId: R32
+      summary: "R32: Search Answers Action"
+      description: "Execute a search for answers. Access: PUB"
+      tags:
+        - "M04: Search and Discovery"
+      parameters:
+        - in: query
+          name: query
+          description: "String to use for full-text search"
+          schema:
+            type: string
+        - in: query
+          name: name
+          description: "Name of the item"
+          schema:
+            type: string
+        - in: query
+          name: description
+          description: "Description of the auction"
+          schema:
+            type: string
+      responses:
+        "200":
+          description: "Ok. Show Search Results for Answers"
+
+  /top-questions:
+    get:
+      operationId: R34
+      summary: "R34: Option Top Questions Form"
+      description: "Show a form to view top questions. Access: PUB"
+      tags:
+        - "M04: Search and Discovery"
+      responses:
+        "200":
+          description: "Ok. Show Top Questions Form"
+
+  /top-questions/execute:
+    get:
+      operationId: R35
+      summary: "R35: Option Top Questions Action"
+      description: "Execute an option to view top questions. Access: PUB"
+      tags:
+        - "M04: Search and Discovery"
+      responses:
+        "200":
+          description: "Ok. Show Top Questions Results"

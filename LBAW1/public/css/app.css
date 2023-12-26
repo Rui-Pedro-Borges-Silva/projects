@@ -1,0 +1,483 @@
+body {
+    background-color: #ffffff;
+    color: #000000;
+    margin: 0;
+  }
+  li {
+    list-style-type: none;
+  }
+
+
+
+
+
+  /* HEADER */
+
+  main > header {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding: 1em;
+    height: 45em;
+    background-image: url('../white.png');
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.9), /* Top color: white with 70% opacity */
+        rgb(172, 168, 161, 0.9)  /* Bottom color: cream with 70% opacity */
+    ),
+    url('../white.png');
+    background-size: cover;
+  }
+  main > header > .main-header {
+    margin-top: 5em;
+  }
+  main > header > * {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10em;
+    margin-right: 10em;
+  }
+  main > header > .main-header > h1 {
+    font-size: 15em;
+  }
+  main > header > .side-header > h1 {
+    font-size: 5em;
+  }
+  main > header a.button {
+    margin: 1em;
+    justify-self: center;
+  }
+  main > header span {
+    margin: 1em;
+    justify-self: center;
+  }
+  main > header .search {
+    display: flex;
+    justify-content: space-between;
+    justify-self: center;
+    width: 100%;
+  }
+  main > header .search input[type=text]{
+    border: #ffffff 1px solid;
+    border-radius: 50px;
+    font-size: 17px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  main > header .search button {
+    border-radius: 50px;
+    padding-right: 30px;
+  }
+
+
+
+
+
+
+  /* CONTENT */
+
+  #content {
+    margin-top: 5em;
+    margin-left: 10em;
+    margin-right: 10em;
+  }
+  #content .all-questions-add-button {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+  }
+  #content h1 {
+    margin-bottom: 0em;
+  }
+  select {
+    width: 20%;
+    margin-bottom: 5em;
+  }
+  #content .questions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 2em;
+    grid-column-gap: 5em
+  }
+  #content fieldset {
+    border: black 1px solid;
+    border-radius: 50px;
+    padding: 5em;
+  }
+  #content fieldset p {
+    font-weight: bold;
+  }
+
+
+
+  #content label {
+    font-weight: normal;
+  }
+  #content > form {
+    margin: 0 auto;
+    padding: 3em;
+    max-width: 30em;
+    border: 1px solid #a4a4a4;
+    border-radius: 50px;
+  }
+  #content > form .error {
+    font-weight: bold;
+    color: #ff3333;
+  }
+  #content > form .success {
+    font-weight: bold;
+    color: #106af1;
+  }
+  #content > form input {
+    background-color: white;
+  }
+
+
+
+
+
+  /**
+   * Override milligram colors
+   * Some styles might be missing
+   **/
+  button {
+    background-color: rgb(172, 168, 161);
+    border-color: rgb(172, 168, 161);
+  }
+  a.button {
+    background-color: rgb(172, 168, 161);
+    border-color: rgb(172, 168, 161);
+  }
+  a.button.button-outline {
+    color: rgb(172, 168, 161);
+  }
+  a {
+    color: black;
+  }
+  input[type=text]:focus,
+  input[type=email]:focus,
+  input[type=password]:focus,
+  input[type=submit]:focus {
+    border-color: rgb(172, 168, 161);
+  }
+
+  input[type='submit'] {
+    background-color:rgb(172, 168, 161);
+    border:0.1rem solid rgb(172, 168, 161);
+  }
+  
+
+
+
+ 
+  /* FOOTER */
+
+  main > footer {
+    padding: 1em;
+    height: 15em;
+    background-color: rgb(192, 188, 180);
+    margin-top: 10em;
+    border-top: #000000 1px solid;
+  }
+  main > footer > div {
+    margin-left: 10em;
+    margin-right: 10em;
+  }
+
+
+
+
+
+    /* MEDIA */
+  
+    @media (max-width: 70em) {
+      #cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      main > header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+      }
+      main > header h1 {
+        grid-row-end: span 2;
+      }
+    }
+    @media (max-width: 40em) {
+      #cards {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 25em) {
+      body {
+        margin: 0;
+      }
+      main > header {
+        margin: 0;
+        padding: 0.5em;
+      }
+      main > header span {
+        margin: 0;
+      }
+      #content form {
+        margin: 0;
+        max-width: 25em;
+      }
+      article.card {
+        margin: 0;
+        border-bottom: 1px solid rgba(96, 108, 118, 0.4);
+      }
+
+    }
+
+
+    /* profile.css or app.css */
+
+.questions-box {
+  border: 1px solid #ddd; /* Light grey border */
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #f9f9f9; /* Light grey background */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+}
+
+.question-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee; /* Light border for each question */
+}
+
+.question-item:last-child {
+  border-bottom: none; /* Remove border for the last item */
+}
+
+.answers-box {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.answer-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.answer-item:last-child {
+  border-bottom: none;
+}
+
+
+.user-image {
+  display: flex;
+  align-items: center; /* Center vertically */
+  margin-bottom: 10px; /* Add spacing between title and image */
+}
+
+.image-square {
+  width: 200px; /* Set the width and height to your desired size */
+  height: 200px;
+  border-radius: 0; /* Remove border-radius to make it a square */
+  overflow: hidden; /* Hide image overflow outside the square */
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: flex-start; /* Align to the left */
+  margin-right: 20px; /* Add spacing between image and title */
+}
+
+.image-square img {
+  max-width: 100%; /* Ensure the image fits inside the square */
+  max-height: 100%;
+  display: block; /* Remove extra space below the image */
+}
+
+.profile-title {
+  flex: 1; /* Allow the title to grow and take available space */
+  text-align: left; /* Align the title text to the left */
+}
+
+/* Back Button Styles */
+.back-button-container {
+  text-align: center; 
+  margin-top: 30px; 
+  margin-bottom: 30px;
+  margin-left: 450px; 
+}
+
+.back-button-container button {
+  background-color: rgb(172, 168, 161); 
+  color: #ffffff; 
+  padding: 2px 20px; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer;
+  font-size: 1em; 
+  transition: background-color 0.3s; 
+}
+
+.back-button-container button:hover {
+  background-color: #000000; 
+}
+
+/* Existing styles... */
+
+/* New styles for the Back Button */
+.back-button-container {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.back-button-container button {
+  background-color: rgb(172, 168, 161);
+  color: #ffffff;
+  padding: 2px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+}
+
+.back-button-container button:hover {
+  background-color: #000000;
+}
+
+
+/* In your app.css file */
+
+.form-group button {
+  background-color: rgb(172, 168, 161);
+  color: white;
+  border: none;
+  padding: 1px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px; /* Spacing between Add and Back buttons */
+}
+
+.form-group button:hover {
+  background-color: #0056b3;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+  text-align: center; 
+  margin-top: 30px; 
+  margin-bottom: 30px;
+  margin-left: 450px; 
+
+}
+
+/* contact.css */
+
+.contact-form {
+  margin-top: 2rem;
+}
+
+.contact-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: .5rem;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: .5rem;
+  border: 1px solid #ccc;
+  border-radius: .25rem;
+}
+
+.contact-form button {
+  padding: .5rem 1rem;
+  background-color: #007bff;
+  border: none;
+  border-radius: .25rem;
+  color: white;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #0056b3;
+}
+
+/* about.css */
+
+.container h1 {
+  margin-top: 2rem;
+}
+
+.container p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f8f9fa; /* Change this to match your color scheme */
+  border-top: 1px solid #e7e7e7;
+}
+
+.footer-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 1rem; /* Adjust the gap between the links */
+
+}
+
+.footer-link {
+  color: #007bff; /* Adjust the color to match your scheme */
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.button.back-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding:2px 15px;
+  background-color: #007bff; /* Change as per your color scheme */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.button.back-button:hover {
+  background-color: #0056b3; /* Darker shade for hover state */
+}
+
+
+
+.tags {
+  margin-top: 5vh;
+}
+
+.answers {
+  margin-top: 5vh;
+}
+
+#answers-individual {
+  margin-bottom: 5vh;
+}

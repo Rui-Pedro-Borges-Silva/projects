@@ -1,0 +1,131 @@
+US03
+BrowseByTags
+High
+As an Authenticated User, I want to be able to browse questions by tags, so that I can quickly and easily find content related to specific topics, categories, or areas of interest that I am looking for.
+
+.
+.
+
+US14
+UpvoteAnswers
+Medium
+As an Authenticated User, I want to upvote answers that are correct and helpful, so that I can express appreciation and ensure that good quality answers are easily identifiable and accessible to the community, contributing to a positive and rewarding environment.
+
+.
+.
+
+US15
+DownvoteIrrelevantAnswers
+Medium
+As an Authenticated User, I want to downvote answers that I find irrelevant or incorrect, so that others can be informed about the potential issues with the provided information.
+
+.
+.
+
+US21
+EditOwnProfile
+Medium
+As an Authenticated User, I want to be able to edit my own profile information, including my username, bio, and profile picture, to keep it up to date and accurate.
+
+.
+.
+
+US22
+PasswordReset
+High
+As a Authenticated User, I want to be able to reset my password in case I forget it or need to change it for security reasons.
+
+.
+.
+
+US31
+DeleteInappropriateContent
+High
+As a Moderator, I want to delete content that violates community guidelines to maintain a healthy and respectful discussion environment.
+
+.
+.
+
+US32
+EditQuestionTags
+High
+As a Moderator, I want to edit question tags to ensure accurate categorization and help in the organization of content.
+
+.
+.
+
+US41
+ManageTags
+MEDIUM
+As an Administrator, I want to manage tags to ensure the proper categorization and organization of questions.
+
+.
+.
+
+US42
+DeleteUserProfiles
+Medium
+As an Administrator, I want to delete user profiles that violate community guidelines or terms of service to maintain the integrity and safety of the community.
+
+.
+.
+
+1.7 Notifications
+HIGH
+FR.701 Answer to Question
+
+.
+.
+
+HIGH
+FR.702 Vote on Content
+
+.
+.
+
+FR.024 View Personal Notifications
+
+.
+.
+
+LOW
+FR.013 Recover Password
+
+.
+.
+HIGH
+FR.014 Delete Account
+
+.
+.
+
+FR.023 Support Profile Picture
+
+.
+.
+
+FR.044 Delete User Account
+
+.
+.
+
+FR.041 Administrator Accounts
+
+HIGH
+FR.042 Administer User Accounts (search, view, edit, create) *
+
+.
+.
+
+HIGH
+FR.061 About US
+
+.
+.
+
+HIGH
+FR.063 Contacts
+
+.
+.
+
