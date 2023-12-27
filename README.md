@@ -13,4 +13,5 @@
 | [CG](https://sigarra.up.pt/feup/en/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=501689)   | JavaScript| VSCode    | Bird's Quest     | Using WebCGF library                         |
 | [PFL](https://sigarra.up.pt/feup/en/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=520329)  | Prolog    | VSCode    | [Splut](https://www.iggamecenter.com/en/rules/splut)       | Using logic programming                      |
 | [PFL](https://sigarra.up.pt/feup/en/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=520329)  | Haskell   | VSCode    | In progress      | Using functional programming                 |
-| [LBAW](https://sigarra.up.pt/feup/en/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=520328) | Laravel   | PhpStorm  | Q&A Forum      | Collaborative Q&A website                    |
+| [LBAW](https://sigarra.up.pt/feup/en/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=520328) | PHP/Laravel   | PhpStorm  | Q&A Forum      | Collaborative Q&A website using MVC                    |
+| [LTW](https://sigarra.up.pt/feup/en/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=520324) | PHP/JS   | VSCode  | Selling Tickets      | Website tickets                    |
