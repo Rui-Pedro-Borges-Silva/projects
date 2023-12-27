@@ -1,0 +1,13 @@
+Station_A,Station_B,Capacity,Service
+one,two,4,mine
+one,three,9,mine
+one,four,16,mine
+one,five,25,mine
+one,six,36,mine
+one,seven,1,mine
+two,three,15,mine
+three,four,3,mine
+four,five,17,mine
+five,six,28,mine
+six,seven,23,mine
+seven,two,20,mine
