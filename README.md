@@ -1,4 +1,4 @@
-# projects
+# Projects
 | UC   | Code      | Editor    | Title            | Description                                  |
 |------|-----------|-----------|------------------|----------------------------------------------|
 | [System Administration](https://sigarra.up.pt/fcup/en/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=528117)   | Terraform/Google Cloud       | VSCode     | [Cluster](https://github.com/Rui-Pedro-Borges-Silva/projects/tree/main/Ceph_Cluster)  | Ceph Cluster all configured in terraform                      |
