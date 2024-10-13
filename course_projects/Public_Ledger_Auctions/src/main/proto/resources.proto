@@ -1,0 +1,89 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "group19.ssd.p2p.grpc";
+option java_outer_classname = "BlockchainGRPCProto";
+option objc_class_prefix = "BC";
+
+package blockchain;
+
+service Peer {
+
+  //Main server actions
+  rpc ping (Ping) returns (Pong){};
+  rpc broadcast_block (Block) returns (Status){};
+  rpc broadcast_transaction (Transaction) returns (Status){};
+  rpc broadcast_blockchain (BlockChain) returns (Status){}
+  rpc findNodes(FindNode) returns (KBucket_GRPC) {}
+}
+
+message Ping{
+  string id = 1;
+  string ip = 2;
+  int32 port = 3;
+  int32 proof = 4;
+  string pubKey = 5;
+
+}
+message Pong{
+  bool pong = 1;
+  BlockChain blockchain = 2;
+}
+
+message IPAddres{
+  string ip = 1;
+  string port = 2;
+}
+message BlockChain{
+  repeated Block chain = 1;
+  TransactionsList pendingTransactions = 2;
+}
+
+message Block{
+  string hashId = 1;
+  string hash = 2;
+  string previousHash = 3;
+  TransactionsList transactionsList = 4;
+  int32 nonce = 5;
+  int64 timestamp = 6;
+  string publicKey = 7;
+  string nodeId = 8;
+}
+
+message TransactionsList{
+  repeated Transaction transactionList = 1;
+}
+
+message Transaction{
+  string hash = 1;
+  string sender = 2;
+  string receiver = 3;
+  bytes signature = 4;
+  int64 timestamp = 5;
+  int32 amount = 6;
+  string misc = 7;
+  string nodeId = 8;
+}
+
+message Status{
+  string status = 1;
+}
+
+message FindNode{
+  string id = 1;
+  string ip = 2;
+  int32 port = 3;
+  int32 proof = 4;
+  string pubKey = 5;
+  string targetId = 6;
+}
+
+message Node_GRPC{
+  string id = 1;
+  string ip = 2;
+  int32 port = 3;
+}
+
+message KBucket_GRPC{
+  repeated Node_GRPC kbucket = 1;
+}
