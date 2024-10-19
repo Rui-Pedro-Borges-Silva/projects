@@ -1,7 +1,7 @@
 # Projects
 | UC   | Code      | Editor    | Title            | Description                                  |
 |------|-----------|-----------|------------------|----------------------------------------------|
-| [Capstone Project](https://sigarra.up.pt/feup/en/UCURR_GERAL.FICHA_UC_VIEW?pv_ocorrencia_id=484443)| Python/Tkinter/PyVista  | VSCode   |(https://github.com/Rui-Pedro-Borges-Silva/projects/tree/main/course_projects/3D_Model_to_Immersive_Model)|
+| [Capstone Project](https://sigarra.up.pt/feup/en/UCURR_GERAL.FICHA_UC_VIEW?pv_ocorrencia_id=484443)| Python/Tkinter/PyVista  | VSCode   |[3D_Model_to_Immersive_Model](https://github.com/Rui-Pedro-Borges-Silva/projects/tree/main/course_projects/3D_Model_to_Immersive_Model)|
 | [System Administration](https://sigarra.up.pt/fcup/en/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=528117)   | Terraform/Google Cloud       | VSCode/Vi     | [Cluster](https://github.com/Rui-Pedro-Borges-Silva/projects/tree/main/course_projects/Ceph_Cluster)  | Ceph Cluster all configured in terraform                      |
 |  [Network Security](https://sigarra.up.pt/fcup/en/UCURR_GERAL.FICHA_UC_VIEW?pv_ocorrencia_id=527970)  |  Snort's rule language    | Nano   |   [IPS & IDS](https://github.com/Rui-Pedro-Borges-Silva/projects/tree/main/course_projects/Network_Secutiry)   |   Proposing advanced IPS upgrades, countering unknowns   |
 | [Artificial Intelligence](https://sigarra.up.pt/feup/en/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=501691) | Python      | VSCode  | [18_Ghosts](https://github.com/Rui-Pedro-Borges-Silva/projects/tree/main/course_projects/18_Ghosts)-[Description](https://boardgamegeek.com/boardgame/70116/18-ghosts)           | Classic game                                 |
